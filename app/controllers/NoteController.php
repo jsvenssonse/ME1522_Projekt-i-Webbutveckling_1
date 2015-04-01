@@ -1,6 +1,6 @@
 <?php
 
-class NoteController extends \BaseController {
+class NoteController extends BaseController {
 
 	/**
 	 * Display a listing of the resource.

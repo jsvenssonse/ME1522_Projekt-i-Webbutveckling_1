@@ -1,8 +1,5 @@
-<?php
+@extends('layouts.master')
+@section('content')
 
-class Users extends Eloquent {
 
-	protected $table = 'notes';
-	protected $hidden = array('title', 'content');
-
-}
+@stop

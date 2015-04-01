@@ -39,11 +39,18 @@ class CreateTable extends Migration {
  			$table->date('booking_to');
  			$table->timestamps();
 		});
-		Schema::create('stugor',function($table)
+		Schema::create('houses',function($table)
 		{
  			$table->increments('id');
  			$table->string('name');
  			$table->string('beds');
+ 			$table->timestamps();
+		});
+		Schema::create('notes',function($table)
+		{
+ 			$table->increments('id');
+ 			$table->string('title');
+ 			$table->string('content');
  			$table->timestamps();
 		});
 	}

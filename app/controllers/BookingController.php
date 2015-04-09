@@ -11,6 +11,7 @@ class BookingController extends BaseController {
 	public function index() // Maria lista husen
 	{
 		//
+		return View::make('booking');
 	}
 	public function search() // Maria sök husen
 	{

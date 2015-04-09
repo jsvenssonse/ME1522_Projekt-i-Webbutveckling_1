@@ -20,3 +20,4 @@ Route::get('/', function()
 */
 
 Route::get('/', 'HomeController@index');
+Route::get('/booking', 'BookingController@index');

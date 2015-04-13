@@ -15,7 +15,7 @@ class BookingController extends BaseController {
 	}
 	public function search() // Maria sök husen
 	{
-		//
+		
 	}
 
 	/**
@@ -46,9 +46,18 @@ class BookingController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id) //Jesper visa spec hus
+	public function show() //Jesper visa spec hus
 	{
-		//
+		$searchValue['datepickerfrom'] = '04/01/2015';//Input::get('datepickerfrom');
+		$searchValue['datepickerto'] = '04/04/2015';//Input::get('datepickerto');
+
+		//$temp = new Houses();
+		//$searchValues['resultat'] = $temp.searchresults($searchValue);
+
+
+		var_dump($searchValue);
+		return View::make('search', $searchValue);
+		//return Redirect::to('search', $searchValue);	
 	}
 
 

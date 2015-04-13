@@ -3,13 +3,6 @@
 <head>
 <link href="Datepicker/jquery-ui.css" rel="stylesheet">
 	<style>
-	body{
-		font: 62.5% "Trebuchet MS", sans-serif;
-		margin: 50px;
-	}
-	.demoHeaders {
-		margin-top: 2em;
-	}
 	#dialog-link {
 		padding: .4em 1em .4em 20px;
 		text-decoration: none;
@@ -50,10 +43,15 @@
 <body>
 
 
-<!-- Datepicker -->
-<p>Date: <input type="text" id="datepickerfrom" class="datepicker">to: <input type="text" id="datepickerto" class="datepicker"></p>
-
-
+<!-- Datepicker 
+<b>Från: <input type="text" id="datepickerfrom" class="datepicker"> till <input type="text" id="datepickerto" class="datepicker"><button id="search">SÖK</button></b> -->
+	{{Form::open(array('url' => 'searchresults', 'method' => 'POST')) }}
+		{{Form::label('id', 'Datum från:')}}
+		{{Form::text('datepickerfrom', '', array('class' => 'datepicker')) }}
+		{{Form::label('id', 'till')}}
+		{{Form::text('datepickerto', '', array('class' => 'datepicker')) }}
+		{{Form::submit('SÖK', '', array('class' => 'formthing')) }}
+	{{Form::close() }}
 
 <div id="datepicker"></div>
 

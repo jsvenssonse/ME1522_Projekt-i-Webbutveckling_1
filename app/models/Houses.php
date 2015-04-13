@@ -1,9 +1,10 @@
 <?php
 
-protected $table = 'Houses';
-protected $fillable = array('name', 'beds');
 
 class Houses extends Eloquent {
+
+protected $table = 'Houses';
+protected $fillable = array('name', 'beds');
 
 	public function showHouses($id){
 			$houses = Houses::find($id);

@@ -1,5 +1,13 @@
-@extends('layouts.master')
-@section('content')
+<?php
 
+protected $table = 'Houses';
+protected $fillable = array('name', 'beds');
 
-@stop
+class Houses extends Eloquent {
+
+	public function showHouses($id){
+			$houses = Houses::find($id);
+			return $houses;
+		}
+
+}

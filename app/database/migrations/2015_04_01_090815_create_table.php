@@ -22,35 +22,32 @@ class CreateTable extends Migration {
 		Schema::create('customer',function($table)
 		{
  			$table->increments('id');
- 			$table->string('firstname');
- 			$table->string('lastname');
+ 			$table->integer('booking_id');
+ 			$table->string('name');
  			$table->string('email');
- 			$table->string('adress');
- 			$table->string('zip_code');
  			$table->string('phonenumber');
  			$table->timestamps();
 		});
 		Schema::create('bookings',function($table)
 		{
  			$table->increments('id');
- 			$table->integer('stug_id');
- 			$table->integer('customer_id');
- 			$table->date('booking_from');
- 			$table->date('booking_to');
+ 			$table->integer('week_id');
+ 			$table->integer('house_id');
+ 			$table->date('datefrom');
+ 			$table->date('dateto');
  			$table->timestamps();
 		});
 		Schema::create('houses',function($table)
 		{
  			$table->increments('id');
  			$table->string('name');
- 			$table->string('beds');
+ 			$table->string('spec');
  			$table->timestamps();
 		});
-		Schema::create('notes',function($table)
+		Schema::create('week',function($table)
 		{
  			$table->increments('id');
- 			$table->string('title');
- 			$table->string('content');
+ 			$table->integer('weeknr');
  			$table->timestamps();
 		});
 	}
@@ -65,7 +62,8 @@ class CreateTable extends Migration {
 		Schema::drop('users');
 		Schema::drop('customer');
 		Schema::drop('bookings');
-		Schema::drop('stugor');
+		Schema::drop('houses');
+		Schema::drop('week');
 	}
 
 }

@@ -1,6 +1,6 @@
     .centred{
-	margin: 0 auto;
-    position: relative;
+		margin: 0 auto;
+    	position: relative;
     }
 
    /*start belongs to calendar*/
@@ -42,34 +42,4 @@
 		width: 200px;
 	}
 	/*stop belongs to calendar*/
-
-
-	.row
-	{
-    
-    width: 200px;
-    padding: 1px;
-    border: 1px solid black;
-    margin: 1px;
-	}
-
-
-   .columns.large-centered 
-   {  
-
-   margin-left: auto;
-   margin-right: auto;
-   float: none;
-   width: 50%;
-   height: 200px;
-   }
-
-
-   /*starts search button*/
-    a.button {
-    display: inline-block;
-    float: right;
-    margin-right: 264px;
-    width: 200px;
-
-   /*stop search button*/
+	

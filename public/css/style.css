@@ -1,0 +1,75 @@
+    .centred{
+	margin: 0 auto;
+    position: relative;
+    }
+
+   /*start belongs to calendar*/
+	.demoHeaders {
+		margin-top: 2em;
+	}
+	#dialog-link {
+		padding: .4em 1em .4em 20px;
+		text-decoration: none;
+		position: relative;
+	}
+	#dialog-link span.ui-icon {
+		margin: 0 5px 0 0;
+		position: absolute;
+		left: .2em;
+		top: 50%;
+		margin-top: -8px;
+	}
+	#icons {
+		margin: 0;
+		padding: 0;
+	}
+	#icons li {
+		margin: 2px;
+		position: relative;
+		padding: 4px 0;
+		cursor: pointer;
+		float: left;
+		list-style: none;
+	}
+	#icons span.ui-icon {
+		float: left;
+		margin: 0 4px;
+	}
+	.fakewindowcontain .ui-widget-overlay {
+		position: absolute;
+	}
+	select {
+		width: 200px;
+	}
+	/*stop belongs to calendar*/
+
+
+	.row
+	{
+    
+    width: 200px;
+    padding: 1px;
+    border: 1px solid black;
+    margin: 1px;
+	}
+
+
+   .columns.large-centered 
+   {  
+
+   margin-left: auto;
+   margin-right: auto;
+   float: none;
+   width: 50%;
+   height: 200px;
+   }
+
+
+   /*starts search button*/
+    a.button {
+    display: inline-block;
+    float: right;
+    margin-right: 264px;
+    width: 200px;
+
+   /*stop search button*/

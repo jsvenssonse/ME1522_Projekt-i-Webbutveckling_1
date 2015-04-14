@@ -23,10 +23,10 @@ class BookingController extends BaseController {
 		->where('bookings.datefrom', '=', $house['datepickerfrom'])
 		->select('bookings.house_id', 'bookings.dateto')
 		->get();
-		dd($data);	
+	
 		for ($i=0; $i < 15; $i++) { 
 		
-			if($data['from'][$i]->dateto == $house['datepickerto']){
+			if($data['from'][$i] == $house['datepickerto']){
 				echo "true";
 			}
 

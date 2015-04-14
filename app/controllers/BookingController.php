@@ -15,7 +15,33 @@ class BookingController extends BaseController {
 	}
 	public function search() // Maria sök husen
 	{
+		$house = array();
+		$house['datepickerfrom'] = Input::get('datepickerfrom');
+		$house['datepickerto'] = Input::get('datepickerto');
+
+		$data['from'] = DB::table('bookings')
+		->where('bookings.datefrom', '=', $house['datepickerfrom'])
+		->select('bookings.house_id', 'bookings.dateto')
+		->get();
+		dd($data);	
+		for ($i=0; $i < 15; $i++) { 
 		
+			if($data['from'][$i]->dateto == $house['datepickerto']){
+				echo "true";
+			}
+
+			/*$dump = array_key_exists($i, $data['from']);
+			if (!$dump) {
+				$kung['temp'] = DB::table('houses')
+				->where('houses.id', '=', $i)
+				->select('houses.name')
+				->get();
+				var_dump($kung['temp']);
+			}*/
+		}
+
+
+		return View::make('results', $data);
 	}
 
 	/**
@@ -46,20 +72,10 @@ class BookingController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show() //Jesper visa spec hus
+		public function show()
 	{
-		$searchValue['datepickerfrom'] = '04/01/2015';//Input::get('datepickerfrom');
-		$searchValue['datepickerto'] = '04/04/2015';//Input::get('datepickerto');
 
-		//$temp = new Houses();
-		//$searchValues['resultat'] = $temp.searchresults($searchValue);
-
-
-		var_dump($searchValue);
-		return View::make('search', $searchValue);
-		//return Redirect::to('search', $searchValue);	
 	}
-
 
 	/**
 	 * Show the form for editing the specified resource.

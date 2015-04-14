@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Blogg</title>
+	<title>Karön</title>
 	{{HTML::Style('css/style.css') }}
 	{{HTML::Script('js/script.js') }}
+<link rel="stylesheet" href="css/foundation.css">
 </head>
 <body>
-	<div class="wrapper">
+	
 		@yield('content')
-	</div>
 </body>
 </html>

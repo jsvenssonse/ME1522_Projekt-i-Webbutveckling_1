@@ -41,14 +41,8 @@ class HomeController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
-	{
-		$id = Session::get('id');
-		$houses = new Houses();
-		$data['houses'] = $houses->showHouses($id);
+	public function show()
 
-		return View::make('home', $data);
-	}
 
 
 	/**

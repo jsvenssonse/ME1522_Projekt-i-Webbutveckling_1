@@ -11,7 +11,7 @@
 
 <!-- Datepicker 
 <b>Från: <input type="text" id="datepickerfrom" class="datepicker"> till <input type="text" id="datepickerto" class="datepicker"><button id="search">SÖK</button></b> -->
-	{{Form::open(array('url' => 'searchresults', 'method' => 'POST')) }}
+	{{Form::open(array('url' => 'results', 'method' => 'POST')) }}
 		{{Form::label('id', 'Datum från:')}}
 		{{Form::text('datepickerfrom', '', array('class' => 'datepicker')) }}
 		{{Form::label('id', 'till')}}

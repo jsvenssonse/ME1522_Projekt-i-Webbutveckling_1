@@ -15,32 +15,43 @@ class BookingController extends BaseController {
 	}
 	public function search() // Maria sök husen
 	{
+		$data['houses'] = DB::table('houses')
+		->get();
+		//dd($data['houses'][3]->id);
+
+		$countHouses = count($data['houses']);
+		//dd($countHouses);
+
 		$house = array();
 		$house['datepickerfrom'] = Input::get('datepickerfrom');
 		$house['datepickerto'] = Input::get('datepickerto');
 
 		$data['from'] = DB::table('bookings')
 		->where('bookings.datefrom', '=', $house['datepickerfrom'])
-		->select('bookings.house_id', 'bookings.dateto')
+		->select('bookings.house_id' )//'bookings.house_id', 'bookings.dateto')
 		->get();
-		dd($data);	
-		for ($i=0; $i < 15; $i++) { 
-		
-			if($data['from'][$i]->dateto == $house['datepickerto']){
-				echo "true";
-			}
 
-			/*$dump = array_key_exists($i, $data['from']);
-			if (!$dump) {
-				$kung['temp'] = DB::table('houses')
-				->where('houses.id', '=', $i)
-				->select('houses.name')
-				->get();
-				var_dump($kung['temp']);
-			}*/
-		}
+		//dd(count($data['from']));
+		//dd(($data['from'][1]->house_id)-1);
 
+		/*for ($i=0; $i < count($data['from']); $i++) {
+				if ($i == 0) {
+					$var = ($data['from'][0]->house_id)-1;
+				}else{
+					$var = ($data['from'][$i]->house_id)-count($data['from']);
+					var_dump(expression)
+				};
+			
+			unset($data['houses'][$var]);
+			//var_dump($data['houses']);
+			$data['houses'] = array_values($data['houses']);
+			//var_dump($data['houses']);
+		}*/
 
+		//dd($data['houses'][0]->name);
+		//dd($data['houses']);
+
+		//dd($hus);
 		return View::make('results', $data);
 	}
 

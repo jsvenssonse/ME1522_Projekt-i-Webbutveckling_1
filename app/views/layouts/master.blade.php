@@ -4,9 +4,14 @@
 	<title>Karön</title>
 	{{HTML::Style('css/style.css') }}
 	{{HTML::Script('js/script.js') }}
+<!-- start for script running the background immage -->	
+	<script src="js/vendor/jquery-2.1.3.min.js"></script>
+	<script src="js/foundation/foundation.js"></script>
+<!-- ending off script running the background immage -->
 <link rel="stylesheet" href="css/foundation.css">
 </head>
 <body>
+	
 	<nav class="top-bar" data-topbar role="navigation">
   <ul class="title-area">
     <li class="name">
@@ -30,10 +35,11 @@
   </section>
 </nav>
 		@yield('content')
-  <div class="panel">
-  <h5>This is a regular panel.</h5>
-  <p>It has an easy to override visual style, and is appropriately subdued.</p>
-</div>
+
+<footer>
+  <p>Contact information: <a href="karon@hotmail.se">
+  karon@hotmail.se</a>.</p>
+</footer>
 
 </body>
 </html>

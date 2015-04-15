@@ -1,29 +1,28 @@
-    .centred{
-		margin: 0 auto;
-    	position: relative;
-    }
+    /*Början! booking och master CSS*/
+    
 
    /*start belongs to calendar*/
-	.demoHeaders {
+	.demoHeaders{
 		margin-top: 2em;
 	}
-	#dialog-link {
+	#dialog-link{
 		padding: .4em 1em .4em 20px;
 		text-decoration: none;
 		position: relative;
 	}
-	#dialog-link span.ui-icon {
+	#dialog-link span.ui-icon{
 		margin: 0 5px 0 0;
 		position: absolute;
 		left: .2em;
 		top: 50%;
 		margin-top: -8px;
 	}
-	#icons {
+	#icons{
 		margin: 0;
 		padding: 0;
 	}
-	#icons li {
+	
+	#icons li{
 		margin: 2px;
 		position: relative;
 		padding: 4px 0;
@@ -31,14 +30,52 @@
 		float: left;
 		list-style: none;
 	}
-	#icons span.ui-icon {
+	
+	#icons span.ui-icon{
 		float: left;
 		margin: 0 4px;
 	}
+	
+
 	.fakewindowcontain .ui-widget-overlay {
 		position: absolute;
 	}
-	select {
+	
+	
+	select{
 		width: 200px;
 	}
 	/*stop belongs to calendar*/
+
+
+	footer{
+		margin-bottom:2px;  
+		background-color: #1F2024;
+	}
+  
+	footer p{
+		color: #FFF;
+	}
+
+	/**/
+	.booking{
+    	height: 540px; 
+		background-image: url("../img/testbild.jpg"); 
+		background-color: #cccccc;
+    	max-width: 100% !important;
+		background-size: cover;
+	    background-repeat: no-repeat;
+	    background-attachment: fixed;
+	}
+
+	  
+	.booking label{
+		color:#FFF;
+
+	}
+	
+
+	body{
+		background-color:#1F2024 !important;		
+	}
+	/*ending off! booking och master CSS*/

@@ -13,7 +13,6 @@ class BookingController extends BaseController {
 		//
 		return View::make('booking');
 	}
-	
 	public function search() // Maria sök husen
 	{
 		$data['houses'] = DB::table('houses')
@@ -31,7 +30,7 @@ class BookingController extends BaseController {
 		->where('bookings.datefrom', '=', $house['datepickerfrom'])
 		->select('bookings.house_id' )//'bookings.house_id', 'bookings.dateto')
 		->get();
-	}
+
 
 	/**
 	 * Show the form for creating a new resource.

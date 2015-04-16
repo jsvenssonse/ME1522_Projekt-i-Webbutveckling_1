@@ -15,34 +15,22 @@ class BookingController extends BaseController {
 	}
 	public function search() // Maria sök husen
 	{
+		$data['houses'] = DB::table('houses')
+		->get();
+		//dd($data['houses'][3]->id);
+
+		$countHouses = count($data['houses']);
+		//dd($countHouses);
+
 		$house = array();
 		$house['datepickerfrom'] = Input::get('datepickerfrom');
 		$house['datepickerto'] = Input::get('datepickerto');
 
 		$data['from'] = DB::table('bookings')
 		->where('bookings.datefrom', '=', $house['datepickerfrom'])
-		->select('bookings.house_id', 'bookings.dateto')
+		->select('bookings.house_id' )//'bookings.house_id', 'bookings.dateto')
 		->get();
-	
-		for ($i=0; $i < 15; $i++) { 
-		
-			if($data['from'][$i] == $house['datepickerto']){
-				echo "true";
-			}
 
-			/*$dump = array_key_exists($i, $data['from']);
-			if (!$dump) {
-				$kung['temp'] = DB::table('houses')
-				->where('houses.id', '=', $i)
-				->select('houses.name')
-				->get();
-				var_dump($kung['temp']);
-			}*/
-		}
-
-
-		return View::make('results', $data);
-	}
 
 	/**
 	 * Show the form for creating a new resource.

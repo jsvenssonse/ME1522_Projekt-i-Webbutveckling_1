@@ -13,7 +13,6 @@ class BookingController extends BaseController {
 		//
 		return View::make('results');
 	}
-	
 	public function search() // Maria sök husen
 	{
 		$data['houses'] = DB::table('houses')
@@ -26,10 +25,6 @@ class BookingController extends BaseController {
 		$house['datepickerfrom'] = new DateTime(Input::get('datepickerfrom'));
 		$house['datepickerto'] = new DateTime(Input::get('datepickerto'));
 
-		$data['from'] = DB::table('bookings')
-		->where('bookings.datefrom', '=', $house['datepickerfrom'])
-		->select('bookings.house_id' )//'bookings.house_id', 'bookings.dateto')
-		->get();
 
 		//dd(count($data['from']));
 		//dd(($data['from'][1]->house_id)-1);

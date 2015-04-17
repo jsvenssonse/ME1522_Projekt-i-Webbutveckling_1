@@ -10,10 +10,12 @@
 
 <!-- Datepicker 
 <b>Från: <input type="text" id="datepickerfrom" class="datepicker"> till <input type="text" id="datepickerto" class="datepicker"><button id="search">SÖK</button></b> -->
-
+<div class="row welcome">
+<p> Welcome to Karön
+</div>
 <div class="row booking">
 <!-- Datepicker -->
-	<div id="datepicker" class="large-6 columns large-centered">
+	<div id="datepicker" class="large-4 columns large-centered">
 	<!--<p>Date: <input type="text" id="datepickerfrom" class="datepicker">to: <input type="text" id="datepickerto" class="datepicker"></p>-->
 		{{Form::open(array('url' => 'results', 'method' => 'POST')) }}
 		{{Form::label('id', 'Date:')}}

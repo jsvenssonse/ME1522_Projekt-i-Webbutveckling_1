@@ -39,6 +39,8 @@ h5  {color:white}
 </form>
 
 
-
+@for ($i=0; $i < count($houses); $i++) 
+		{{$houses[$i]->name;}}<br>
+	@endfor
 
 @stop

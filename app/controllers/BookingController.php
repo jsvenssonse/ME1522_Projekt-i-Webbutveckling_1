@@ -13,7 +13,37 @@ class BookingController extends BaseController {
 		//
 		return View::make('booking');
 	}
-	public function search() // Maria sök husen
+
+	public function search(){
+		$house = array();
+		$house['datepickerfrom'] = new DateTime(Input::get('datepickerfrom'));
+		$house['datepickerto'] = new DateTime(Input::get('datepickerto'));
+		//var_dump($house['datepickerfrom']);
+		//var_dump($house['datepickerto']);
+		$data['dates1'] = DB::table('bookings')
+			->where('bookings.datefrom', '>=', $house['datepickerfrom']->format('Y-m-d'))
+			//->andwhere('bookings.dateto', '<=', $house['datepickerto']->format('Y-m-d'))
+			->get();
+		
+		$counterDates1 = count($data['dates1']);
+
+		$data['dates2'] = DB::table('bookings')
+			->where('bookings.datefrom', '<=', $house['datepickerto']->format('Y-m-d'))
+			->get();
+
+		
+		dd($data);
+
+
+		dd($data['houses']);
+	
+
+
+
+
+	}
+
+	public function search1() // Maria sök husen
 	{
 		$data['houses'] = DB::table('houses')
 		->get();
@@ -31,6 +61,7 @@ class BookingController extends BaseController {
 		//dd(($data['from'][1]->house_id)-1);
 		$diff = date_diff($house['datepickerfrom'], $house['datepickerto']);
 		//dd($diff->format("%a"));
+
 		$counterDays = $diff->format("%a");
 		if ($counterDays <= 7) {
 			$data['from'] = DB::table('bookings')
@@ -58,20 +89,57 @@ class BookingController extends BaseController {
 				}
 			}
 			
+			//Här läggs alla kriterier in i en array och dessa ska vara uppfylda
 			for ($i=0; $i < count($date); $i++) { 
-				array_push($dateArray, ($dateSplitArray[0].'-'.$dateSplitArray[1].'-'.$date[$i]));
+				array_push($dateArray, ($dateSplitArray[0].'-'.$dateSplitArray[1].'-'.$date[$i])); 
 			}
-			var_dump($dateArray[0]);
 
-			//for ($i=0; $i < count($dateArray); $i++) { 
-				$data['from'] = DB::table('bookings')
-				->where('bookings.datefrom', '=', $dateArray[0])
-				//->where('bookings.weeks', '=', $countWeeks+1)
-				->select('bookings.house_id' )//'bookings.house_id', 'bookings.dateto')
-				->get();
-				var_dump($data['from']);
+			//var_dump($dateArray);
+
+			//Hämtar alla hus som är bokade mer än 1 vecka
+			$data['from'] = DB::table('bookings')
+			->where('bookings.weeks', '>', '1')
+			->get();
+			
+			$house1 = array();
+
+			$dateArrayDB = array(Input::get('datepickerfrom'));
+			//var_dump($dateArrayDB);
+			$dateSplitArray = explode('-' ,$dateArrayDB[0]);
+
+			for ($i=0; $i < count($data['from']); $i++) { 
+				$datefromday = new DateTime($data['from'][$i]->datefrom);
+				$datetoday = new DateTime($data['from'][$i]->dateto);
+				$house1['datepickerfrom'] = $datefromday->format('Y-m-d');
+				$house1['datepickerto'] = $datetoday->format('Y-m-d');
+				
+				$diffCounter = date_diff($datefromday, $datetoday);//Räknar ut dagar
+				$diffresults = $diffCounter->format("%a"); //gör så de visas som heltal
+
+				$countWeeksDB = $diffresults/7-1; // Tar reda på veckor
+				$houseId = $data['from'][$i]->id;
+				for ($j=0; $j < $countWeeksDB; $j++) { 
+					if ($j < 1) {
+					$temop = $house['datepickerfrom']->format('d')+7;
+					$date[$houseId][0] = $temop; //Lägger på 7 dagara på startdatum
+					}else{
+					$temop = $date[$j-1] + 7;
+					$date[$houseId][$j] = $temop;
+					}
+				}
+				dd($date);
+				for ($k=0; $k < count($date); $k++) { 
+					array_push($dateArrayDB, ($dateSplitArray[0].'-'.$dateSplitArray[1].'-'.$date[$houseId][$k])); 
+				}
+
+			}
+			var_dump($dateArray);
+			//var_dump($data['from'][0]->datefrom);
 				//var_dump($variabel);
 			//}
+
+			//Här ska vi rensa bort alla hus 
+
 
 		}
 		

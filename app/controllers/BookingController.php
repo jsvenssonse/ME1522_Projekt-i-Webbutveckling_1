@@ -14,6 +14,7 @@ class BookingController extends BaseController {
 		return View::make('booking');
 	}
 
+
 	public function search(){
 		$house = array();
 		$house['datepickerfrom'] = new DateTime(Input::get('datepickerfrom'));
@@ -53,10 +54,20 @@ class BookingController extends BaseController {
 
 	}
 
+
+	public function prices() // Maria lista husen
+	{
+		//
+		return View::make('prices');
+	}
+
+
 	public function search1() // Maria sök husen
 	{
 		$data['houses'] = DB::table('houses')
 		->get();
+		//dd($data['houses'][3]->id);
+
 
 		$countHouses = count($data['houses']);
 		//dd($countHouses);
@@ -160,6 +171,7 @@ class BookingController extends BaseController {
 		//dd($hus);
 		return View::make('results', $data);
 
+
 	}
 
 	/**
@@ -200,6 +212,7 @@ class BookingController extends BaseController {
 	 *
 	 * @return Response
 	 */
+
 	public function store($id) /* Maria Rennemark - add a house to a specific booking*/
 	{
 		$posthouse = new Houses(
@@ -209,7 +222,6 @@ class BookingController extends BaseController {
 		$posthouse = $booking->houses()->save($posthouse);
 var_dump($posthouse);
 		return Redirect::to('verification'.$id);
-	}
 
 
 	/**

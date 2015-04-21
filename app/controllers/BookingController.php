@@ -21,37 +21,23 @@ class BookingController extends BaseController {
 		$house['datepickerto'] = new DateTime(Input::get('datepickerto'));
 		//var_dump($house['datepickerfrom']);
 		//var_dump($house['datepickerto']);
-		$data['dates1'] = DB::table('bookings')
-			->where('bookings.datefrom', '>=', $house['datepickerfrom']->format('Y-m-d'))
-			//->where('bookings.dateto', '<=', $house['datepickerto']->format('Y-m-d'))
-			->get();
-		
-		$counterDates1 = count($data['dates1']);
-		var_dump($data['dates1']);
+		$house['datepickerto'] = ($house['datepickerto']->format('Y-m')).'-'.($house['datepickerto']->format('d')-1);
 
-		/*$data['dates2'] = DB::table('bookings')
-			->where('bookings.datefrom', '<=', $house['datepickerto']->format('Y-m-d'))
-			->get();
-
-		var_dump($data['dates1'][1]->dateto);
-		var_dump($house['datepickerto']);
-		var_dump($data['dates1'][1]->dateto <= $house['datepickerto']);
-		for ($i=0; $i < $counterDates1; $i++) { 
-			
-			if ($house['datepickerto']==$data['dates1'][$i]->dateto) {
-				var_dump($data['dates1'][$i]->dateto);
-			}
-		}
-		unset($data['dates1']->dateto);
-		*/
-		//dd($data['houses']);
-		$data['houses'] = DB::table('houses')
-		->get();
-		
+	//	dd($house['datepickerto']);
+		$checkfrom['dates'] = DB::table('bookings')
+        ->whereNotBetween('datefrom', array($house['datepickerfrom']->format('Y-m-d'), $house['datepickerto']))
+        ->select('bookings.house_id' )
+        ->get();
+		//dd($data['dates'][0]->house_id);
+		$data['houses'] = array();
+        for ($i=0; $i < count($checkfrom['dates']); $i++) { 
+        	$data['houses'][$i] = (DB::table('houses')
+        	->where('id', '=' , $checkfrom['dates'][$i]->house_id)
+        	->get());
+        	 
+        }
+        //var_dump($data['houses']);
 		return View::make('results', $data);
-
-
-
 	}
 
 

@@ -1,16 +1,19 @@
 @extends('layouts.master')
 @section('content')
 
+
 <style>
 h5  {color:white}
 </style>
-<br>
-	<div class="large-4 columns panel">
+
+
+	<div class="large-4 columns">
 	    <div class="large-12 columns">
       <h5>Välj ledig stuga</h5>
 
       @for ($i=0; $i < count($houses); $i++)
-      <input id="checkbox1" type="checkbox" value="checkbox1"><label for="checkbox1">{{$houses[$i]->name;}}</label>
+      	{{Form::label($houses[$i][0]->name)}}
+     	 {{ Form::checkbox('checkbox1', '') }}
       @endfor
 
     </div>

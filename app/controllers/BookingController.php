@@ -11,7 +11,7 @@ class BookingController extends BaseController {
 	public function index() // Maria lista husen
 	{
 		//
-		return View::make('results');
+		return View::make('booking');
 	}
 
 	public function search(){
@@ -22,22 +22,32 @@ class BookingController extends BaseController {
 		//var_dump($house['datepickerto']);
 		$data['dates1'] = DB::table('bookings')
 			->where('bookings.datefrom', '>=', $house['datepickerfrom']->format('Y-m-d'))
-			//->andwhere('bookings.dateto', '<=', $house['datepickerto']->format('Y-m-d'))
+			//->where('bookings.dateto', '<=', $house['datepickerto']->format('Y-m-d'))
 			->get();
 		
 		$counterDates1 = count($data['dates1']);
+		var_dump($data['dates1']);
 
-		$data['dates2'] = DB::table('bookings')
+		/*$data['dates2'] = DB::table('bookings')
 			->where('bookings.datefrom', '<=', $house['datepickerto']->format('Y-m-d'))
 			->get();
 
+		var_dump($data['dates1'][1]->dateto);
+		var_dump($house['datepickerto']);
+		var_dump($data['dates1'][1]->dateto <= $house['datepickerto']);
+		for ($i=0; $i < $counterDates1; $i++) { 
+			
+			if ($house['datepickerto']==$data['dates1'][$i]->dateto) {
+				var_dump($data['dates1'][$i]->dateto);
+			}
+		}
+		unset($data['dates1']->dateto);
+		*/
+		//dd($data['houses']);
+		$data['houses'] = DB::table('houses')
+		->get();
 		
-		dd($data);
-
-
-		dd($data['houses']);
-	
-
+		return View::make('results', $data);
 
 
 

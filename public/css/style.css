@@ -50,7 +50,7 @@
 	
 	/**/
 	.booking{
-    	min-height: 540px; 
+    	min-height: 800px; 
 		background-image: url("../img/testbild2.jpg"); 
 		background-color: #cccccc;
     	max-width: 100% !important;
@@ -58,14 +58,6 @@
 	    background-repeat: no-repeat;
 	    background-attachment: fixed;
 	}
-
-
-
-	.booking label{
-		color:#FFF;
-
-	}
-	
 
 	body{
 		background-color:#B18484 !important;		
@@ -87,7 +79,6 @@
 
 		margin-bottom:0px;  
 		background-color: #1F2024;
-		position:fixed;
 		bottom:0px;
 		width: 100%;
 		padding-bottom: 8px;
@@ -105,5 +96,35 @@
     margin-right: 20px;
 	margin-left: 10px;
 	color: #fff;
+	}
+	
+	.large-6 {
+    width: 40% !important;
+	}
+
+	.large-6 p{
+	max-height: 100%;
+	max-width: 100%;
+	}
+
+	input[type="text"].shadow{
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset;
+	border-color: #DAD0D0;
+	}
+
+	.booking label{
+	color: #534C4C;
+	color:#7D7171;
+	}
+
+	.panel h2{
+		margin-bottom: 10% !important;
+		margin-left: 135px;
+	}
+
+	.large-4 {
+    width: 33.3333%;
+   	margin-left: 35px;
+	margin-top: 20px;
 	}
 	/*ending off! booking och master CSS*/

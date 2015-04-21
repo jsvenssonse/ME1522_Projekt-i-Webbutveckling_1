@@ -18,19 +18,23 @@
 	<div class="large-12 columns">
 		<div class="large-2 columns">
 		</div>
-			<div id="datepicker" class="large-8 columns large-centered">
+			<div id="datepicker" class="large-11 columns large-centered">
 				<div class="large-6 columns panel">
+				<p>Lorem Ipsum är en utfyllnadstext från tryck- och förlagsindustrin. Lorem ipsum har varit standard ända sedan 1500-talet, när en okänd boksättare tog att antal bokstäver och blandade dem för att göra ett provexemplar av en bok. Lorem ipsum har inte bara överlevt fem århundraden, utan även övergången till elektronisk typografi utan större förändringar. Det blev allmänt känt på 1960-talet i samband med lanseringen av Letraset-ark med avsnitt av Lorem Ipsum, och senare med mjukvaror som Aldus PageMaker.</p>
 				</div>
-					<div class="large-5 columns panel">
-					<!--<p>Date: <input type="text" id="datepickerfrom" class="datepicker">to: <input type="text" id="datepickerto" class="datepicker"></p>-->
+					
+		<div class="large-5 columns panel">
+			<h2>Boka stuga</h2>
+			<!--<p>Date: <input type="text" id="datepickerfrom" class="datepicker">to: <input type="text" id="datepickerto" class="datepicker"></p>-->
 			{{Form::open(array('url' => 'results', 'method' => 'POST')) }}
-			{{Form::label('id', 'Date:')}}
-			{{Form::text('datepickerfrom', '', array('class' => 'datepicker')) }}
-			{{Form::label('id', 'to')}}
-			{{Form::text('datepickerto', '', array('class' => 'datepicker')) }}
-			{{Form::submit('Search', array('class' => 'formthing button small right success')) }}
+			{{Form::label('id', 'Datum från:')}}
+			{{Form::text('datepickerfrom', '', array('class' => 'datepicker shadow')) }}
+			{{Form::label('id', 'Datum till:')}}
+			{{Form::text('datepickerto', '', array('class' => 'datepicker shadow')) }}
+			{{Form::submit('Sök', array('class' => 'formthing button small right')) }}
 			{{Form::close() }}
-					</div>
+		</div>
+			
 			</div>
 		<div class="large-2 columns">
 		</div>

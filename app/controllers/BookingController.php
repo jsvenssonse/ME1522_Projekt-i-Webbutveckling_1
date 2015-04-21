@@ -223,7 +223,7 @@ class BookingController extends BaseController {
 var_dump($posthouse);
 		return Redirect::to('verification'.$id);
 
-
+}
 	/**
 	 * Display the specified resource.
 	 *

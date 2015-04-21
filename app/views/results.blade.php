@@ -5,7 +5,7 @@
 h5  {color:white}
 </style>
 <br>
-	<div class="large-4 columns">
+	<div class="large-4 columns panel">
 	    <div class="large-12 columns">
       <h5>Välj ledig stuga</h5>
 

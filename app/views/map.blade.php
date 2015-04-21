@@ -1,41 +1,12 @@
 <!DOCTYPE html>
 @extends('layouts.master')
 @section('content')
-<html>
 <head>
 
+</head>
 
 
 
+<body>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</body>
-</html>

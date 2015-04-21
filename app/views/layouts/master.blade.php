@@ -28,18 +28,19 @@
     
 
     <!-- Left Nav Section -->
+
 	<ul class="left">
-    	<li><a href="/restaurant">Restaurant</a></li>
- 		<li><a href="/map">Map</a></li>
-		<li><a href="/prices">prices</a></li>    
-    	<li><a href="/about">About</a></li>
+    	<li><a href="/restaurant">Restaurang</a></li>
+ 		<li><a href="/map">Karta</a></li>
+		<li><a href="/prices">Priser</a></li>    
+    	<li><a href="/about">Om Oss</a></li>
     </ul>
   </section>
 </nav>
 		@yield('content')
 
 <footer>
-	<p><i class="fi-mail small"></i>Contact information: <a href="klas@konsultsmedjan.se">
+	<p><i class="fi-mail small"></i>Kontakt information: <a href="klas@konsultsmedjan.se">
 	klas@konsultsmedjan.se</a>.</p>
 	<p><i class="fi-home medium"></i>Villa Vassen, 372 73 Ronneby</p>
 	<p><i class="fi-telephone"></i>0457-142 00</p>

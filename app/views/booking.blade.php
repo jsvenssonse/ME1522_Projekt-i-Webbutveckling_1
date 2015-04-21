@@ -11,8 +11,8 @@
 
 <!-- Datepicker 
 <b>Från: <input type="text" id="datepickerfrom" class="datepicker"> till <input type="text" id="datepickerto" class="datepicker"><button id="search">SÖK</button></b> -->
-
 <div class="row booking">
+
 		<!-- Datepicker -->
 	
 	<div class="large-12 columns">
@@ -35,17 +35,8 @@
 		<div class="large-2 columns">
 		</div>
 	</div>	
+
 </div>
-
-
-
-
-
-
-
-
-
-
 
 <script src="Datepicker/external/jquery/jquery.js"></script>
 <script src="Datepicker/jquery-ui.js"></script>

@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'booking_ME1522',
 			'username'  => 'root',
-			'password'  => 'Nisse100',
+			'password'  => '',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<title>Karön</title>
 	{{HTML::Style('css/style.css') }}
 	{{HTML::Script('js/script.js') }}
@@ -34,7 +35,9 @@
     </ul>
   </section>
 </nav>
-		@yield('content')
+    <div class="row booking">
+    @yield('content')
+    </div>
 
 <footer>
   <p>Contact information: <a href="karon@hotmail.se">

@@ -14,7 +14,16 @@ protected $fillable = array('name', 'spec');
 
 	public function booking()
     {
-        return $this->belongsToMany('bookings');
+        return $this->belongsToMany('Bookings');
+    }
+
+    public function checkbox($checkbox){
+    	Houses::create(array('name' => $checkbox['checkbox1']));
+    }
+
+    public function weekCounter(){
+
+    	
     }
 
     public function weekCounter(){

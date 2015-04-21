@@ -4,6 +4,16 @@
 class Customer extends Eloquent {
 
 	protected $table = 'customer';
-	protected $hidden = array('firstname', 'lastname', 'email', 'adress', 'zip_code', 'phonenumber');
+	protected $fillable = array('name', 'email', 'phonenumber');
+
+public function customerValues($customer){
+		Customer::create(array(
+			'name' => $customer['name'],
+			'phonenumber' => $customer['phonenumber'],
+			'email' => $customer['email']	
+		));
+		
+}
+
 
 }

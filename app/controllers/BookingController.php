@@ -11,7 +11,7 @@ class BookingController extends BaseController {
 	public function index() // Maria lista husen
 	{
 		//
-		return View::make('results');
+		return View::make('booking');
 	}
 
 	public function search(){
@@ -157,24 +157,48 @@ class BookingController extends BaseController {
 	 *
 	 * @return Response
 	 */
-	public function create($id) //Jesper göra en bokning
+
+	public function checkboxValue() /*Maria testar*/
+	{
+		$checkbox = array();
+		$checkbox['checkbox1'] = Input::get('checkbox1');
+
+		$data = new Houses();
+		$data->checkbox($checkbox);
+
+		return View::make('verification');
+
+			}
+
+
+	public function create() /*Maria Rennemark - save user information*/
 	{
 		$customer = array();
 		$customer['name'] = Input::get('name');
 		$customer['phonenumber'] = Input::get('phonenumber');
 		$customer['email'] = Input::get('email');
 
-			}
+		$data = new Customer();
+		$data->customerValues($customer);
 
+		return View::make('verification');
+
+			}
 
 	/**
 	 * Store a newly created resource in storage.
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store($id) /* Maria Rennemark - add a house to a specific booking*/
 	{
-		//
+		$posthouse = new Houses(
+			array(
+				'name' => Input::get('checkbox1') ));
+		$booking = Bookings::find($id);
+		$posthouse = $booking->houses()->save($posthouse);
+var_dump($posthouse);
+		return Redirect::to('verification'.$id);
 	}
 
 

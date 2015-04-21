@@ -13,6 +13,11 @@ class BookingController extends BaseController {
 		//
 		return View::make('booking');
 	}
+	public function prices() // Maria lista husen
+	{
+		//
+		return View::make('prices');
+	}
 	public function search() // Maria sök husen
 	{
 		$data['houses'] = DB::table('houses')

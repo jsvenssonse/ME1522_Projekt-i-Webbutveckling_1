@@ -23,3 +23,4 @@ Route::get('/', function()
 Route::get('/home', 'HomeController@index');
 Route::get('/', 'BookingController@index');
 Route::post('/results', 'BookingController@search');
+Route::get('/prices', 'BookingController@prices');

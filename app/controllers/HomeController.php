@@ -12,7 +12,6 @@ class HomeController extends BaseController {
 		return View::make('home');
 	}
 
-
 	/**
 	 * Show the form for creating a new resource.
 	 *

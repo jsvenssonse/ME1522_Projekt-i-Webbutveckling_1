@@ -49,17 +49,31 @@
 
 
 	footer{
-		margin-bottom:2px;  
+		margin-bottom:0px;  
 		background-color: #1F2024;
+		position:fixed;
+		bottom:0px;
+		width: 100%;
+		padding-bottom: 8px;
+		position: fixed;
 	}
   
 	footer p{
 		color: #FFF;
+		margin-bottom: 0px;
 	}
 
+	footer i{
+    font-style: italic;
+    line-height: inherit;
+    margin-right: 20px;
+	margin-left: 10px;
+	color: #fff;
+	}
+	
 	/**/
 	.booking{
-    	height: 540px; 
+    	min-height: 540px; 
 		background-image: url("../img/testbild2.jpg"); 
 		background-color: #cccccc;
     	max-width: 100% !important;
@@ -68,7 +82,8 @@
 	    background-attachment: fixed;
 	}
 
-	  
+
+
 	.booking label{
 		color:#FFF;
 
@@ -76,6 +91,20 @@
 	
 
 	body{
-		background-color:#1F2024 !important;		
+		background-color:#B18484 !important;		
 	}
+	
+	#datepicker{
+		margin-top: 140px;
+		background-color: ;
+		height: 250px;
+		border-color: #1F2024;
+	}
+
+	
+	.formthing{
+		margin-top: 21px !important;
+	}
+	
+	
 	/*ending off! booking och master CSS*/

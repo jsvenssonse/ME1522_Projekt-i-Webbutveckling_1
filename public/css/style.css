@@ -49,8 +49,10 @@
 
 
 	footer{
-		margin-bottom:2px;  
+ 
 		background-color: #1F2024;
+		bottom:0px;
+		position: fixed;
 	}
   
 	footer p{

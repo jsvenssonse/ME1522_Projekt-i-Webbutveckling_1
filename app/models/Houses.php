@@ -17,4 +17,9 @@ protected $fillable = array('name', 'spec');
         return $this->belongsToMany('bookings');
     }
 
+    public function weekCounter(){
+
+    	
+    }
+
 }

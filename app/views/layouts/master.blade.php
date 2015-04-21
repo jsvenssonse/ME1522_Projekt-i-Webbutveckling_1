@@ -27,7 +27,7 @@
 
     <!-- Left Nav Section -->
     <ul class="left">
-      <li><a href="#">Bokning</a></li>
+      <li><a href="#">Boka stuga</a></li>
     <li><a href="#">Restaurang</a></li>
    <li><a href="#">Karta</a></li>
   <li><a href="#">Om Oss</a></li>

@@ -26,3 +26,4 @@ Route::post('/results', 'BookingController@search1');
 Route::post('/verification','BookingController@create');
 Route::get('/prices', 'BookingController@prices');
 
+Route::get('/admin', 'AdminController@index');

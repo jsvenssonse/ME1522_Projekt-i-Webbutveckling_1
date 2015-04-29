@@ -3,6 +3,9 @@
 * Includes: core.js, datepicker.js
 * Copyright 2015 jQuery Foundation and other contributors; Licensed MIT */
 
+
+
+
 (function( factory ) {
 	if ( typeof define === "function" && define.amd ) {
 
@@ -2062,7 +2065,8 @@ $.extend(Datepicker.prototype, {
 						unselectable = (otherMonth && !selectOtherMonths) || !daySettings[0] ||
 							(minDate && printDate < minDate) || (maxDate && printDate > maxDate);
 						tbody += "<td class='" +
-							((dow + firstDay + 6) % 7 >= 5 ? " ui-datepicker-week-end" : "") + // highlight weekends
+							((dow + firstDay + 6) % 7 == 5 ? " ui-datepicker-week-end" : "ui-datepicker-unselectable ui-state-disabled") + // highlight weekends
+							//((dow + firstDay + 6) % 7 >= 5 ? " ui-datepicker-week-end" : "") + // highlight weekends
 							(otherMonth ? " ui-datepicker-other-month" : "") + // highlight days from other months
 							((printDate.getTime() === selectedDate.getTime() && drawMonth === inst.selectedMonth && inst._keyEvent) || // user pressed key
 							(defaultDate.getTime() === printDate.getTime() && defaultDate.getTime() === selectedDate.getTime()) ?

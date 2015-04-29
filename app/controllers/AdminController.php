@@ -1,6 +1,6 @@
 <?php
 
-class HomeController extends BaseController {
+class AdminController extends BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -9,7 +9,13 @@ class HomeController extends BaseController {
 	 */
 	public function index()
 	{
-		return View::make('admin');
+		$data['customer'] = DB::table('customer')
+		->join('bookings', 'customer.id', '=', 'bookings.id')
+		->join('houses', 'bookings.house_id', '=', 'houses.id')
+		->get();
+
+
+		return View::make('admin', $data);
 	}
 
 	/**
@@ -41,7 +47,12 @@ class HomeController extends BaseController {
 	 * @return Response
 	 */
 	public function show()
+	{
+		$data['customer'] = DB::table('customer')
+		->get();
 
+		return View::make('admin', $data);
+	}
 
 
 	/**

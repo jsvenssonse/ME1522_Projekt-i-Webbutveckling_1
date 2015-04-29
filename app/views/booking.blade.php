@@ -3,7 +3,10 @@
 @section('content')
 <head>
 <link href="Datepicker/jquery-ui.css" rel="stylesheet">
+	<script src="js/vendor/jquery-2.1.3.min.js"></script>
 
+
+  </script>
 </head>
 <body>
 
@@ -37,6 +40,7 @@
 			
 			</div>
 		<div class="large-2 columns">
+		<p></p>
 		</div>
 	</div>	
 
@@ -45,12 +49,16 @@
 <script src="Datepicker/external/jquery/jquery.js"></script>
 <script src="Datepicker/jquery-ui.js"></script>
 <script>
+
+
+
 $( ".datepicker" ).datepicker({
-	
 	showWeek: true,
-      firstDay: 1
+      firstDay: 1,
 });
 // Hover states on the static widgets
+//ui-datepicker-unselectable ui-state-disabled
+
 $( "#dialog-link, #icons li" ).hover(
 	function() {
 		$( this ).addClass( "ui-state-hover" );

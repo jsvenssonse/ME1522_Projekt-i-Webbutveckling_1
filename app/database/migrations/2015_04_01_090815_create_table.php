@@ -31,7 +31,6 @@ class CreateTable extends Migration {
 		Schema::create('bookings',function($table)
 		{
  			$table->increments('id');
- 			$table->integer('week_id');
  			$table->integer('house_id');
  			$table->date('datefrom');
  			$table->date('dateto');
@@ -40,14 +39,8 @@ class CreateTable extends Migration {
 		Schema::create('houses',function($table)
 		{
  			$table->increments('id');
- 			$table->string('name');
+ 			$table->string('house_name');
  			$table->string('spec');
- 			$table->timestamps();
-		});
-		Schema::create('week',function($table)
-		{
- 			$table->increments('id');
- 			$table->integer('weeknr');
  			$table->timestamps();
 		});
 	}

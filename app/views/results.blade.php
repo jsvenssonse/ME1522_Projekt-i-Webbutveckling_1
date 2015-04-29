@@ -1,7 +1,6 @@
 @extends('layouts.master')
 @section('content')
 
-
 <style>
 h5  {color:white}
 </style>
@@ -12,7 +11,7 @@ h5  {color:white}
       <h5>Välj ledig stuga</h5>
 
       @for ($i=0; $i < count($houses); $i++)
-      	{{Form::label($houses[$i][0]->name)}}
+      	{{Form::label($houses[$i]->name)}}
      	 {{ Form::checkbox('checkbox1', '') }}
       @endfor
 

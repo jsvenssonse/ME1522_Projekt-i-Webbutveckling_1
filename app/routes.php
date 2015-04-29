@@ -22,5 +22,5 @@ Route::get('/', function()
 
 Route::get('/home', 'HomeController@index');
 Route::get('/', 'BookingController@index');
-Route::post('/results', 'BookingController@search');
-Route::post('/verification{id}','BookingController@store');
+Route::post('/results', 'BookingController@search1');
+Route::post('/verification','BookingController@create');

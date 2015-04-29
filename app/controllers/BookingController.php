@@ -32,10 +32,10 @@ class BookingController extends BaseController {
 			->get();
 
 		
-		dd($data);
+		//dd($data);
 
 
-		dd($data['houses']);
+		//dd($data['houses']);
 	
 
 
@@ -126,13 +126,13 @@ class BookingController extends BaseController {
 					$date[$houseId][$j] = $temop;
 					}
 				}
-				dd($date);
+				//dd($date);
 				for ($k=0; $k < count($date); $k++) { 
 					array_push($dateArrayDB, ($dateSplitArray[0].'-'.$dateSplitArray[1].'-'.$date[$houseId][$k])); 
 				}
 
 			}
-			var_dump($dateArray);
+			//var_dump($dateArray);
 			//var_dump($data['from'][0]->datefrom);
 				//var_dump($variabel);
 			//}
@@ -173,10 +173,14 @@ class BookingController extends BaseController {
 
 	public function create() /*Maria Rennemark - save user information*/
 	{
+
 		$customer = array();
+		
+		$customer['checkbox'] = Input::get('checkbox','value');
 		$customer['name'] = Input::get('name');
 		$customer['phonenumber'] = Input::get('phonenumber');
 		$customer['email'] = Input::get('email');
+	var_dump($customer);
 
 		$data = new Customer();
 		$data->customerValues($customer);
@@ -192,12 +196,12 @@ class BookingController extends BaseController {
 	 */
 	public function store($id) /* Maria Rennemark - add a house to a specific booking*/
 	{
-		$posthouse = new Houses(
+		$house = new Houses(
 			array(
 				'name' => Input::get('checkbox1') ));
 		$booking = Bookings::find($id);
-		$posthouse = $booking->houses()->save($posthouse);
-var_dump($posthouse);
+		$house = $booking->houses()->save($house);
+
 		return Redirect::to('verification'.$id);
 	}
 

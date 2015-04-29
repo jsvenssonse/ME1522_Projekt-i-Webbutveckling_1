@@ -10,16 +10,16 @@ h5  {color:white}
       <h5>Välj ledig stuga</h5>
       {{Form::open(array('url' => 'verification', 'method' => 'POST')) }}
       @for ($i=0; $i < count($houses); $i++)
-      {{ Form::checkbox('checkbox1', $houses[$i]->name) }}
-      <!--<input id="checkbox1" type="checkbox" value="checkbox1"><label for="checkbox1">{{$houses[$i]->name;}}</label>-->
+      {{Form::label($houses[$i]->name) }}
+      {{ Form::checkbox('checkbox', $houses[$i]->id) }}
+      
       @endfor
-{{Form::submit('Bekräfta bokning', array('class' => 'button small ')) }}
-{{Form::close() }}
+
     </div>
 
 <br>
 <br>	
-<!--
+
 {{Form::open(array('url' => 'verification', 'method' => 'POST')) }}
 	    <div class="large-12 columns">
 
@@ -41,7 +41,6 @@ h5  {color:white}
 
 {{Form::close() }}
 
--->
   
 
 

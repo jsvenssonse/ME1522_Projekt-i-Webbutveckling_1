@@ -8,40 +8,15 @@ class BookingController extends BaseController {
 	 * @return Response
 	 */
 
-	public function index() // Maria lista husen
+	public function index() 
 	{
 		//
 		return View::make('booking');
 	}
 
 
-	public function search(){
-		$house = array();
-		$house['datepickerfrom'] = new DateTime(Input::get('datepickerfrom'));
-		$house['datepickerto'] = new DateTime(Input::get('datepickerto'));
-		//var_dump($house['datepickerfrom']);
-		//var_dump($house['datepickerto']);
-		$house['datepickerto'] = ($house['datepickerto']->format('Y-m')).'-'.($house['datepickerto']->format('d')-1);
 
-	//	dd($house['datepickerto']);
-		$checkfrom['dates'] = DB::table('bookings')
-        ->whereNotBetween('datefrom', array($house['datepickerfrom']->format('Y-m-d'), $house['datepickerto']))
-        ->select('bookings.house_id' )
-        ->get();
-		//dd($data['dates'][0]->house_id);
-		$data['houses'] = array();
-        for ($i=0; $i < count($checkfrom['dates']); $i++) { 
-        	$data['houses'][$i] = (DB::table('houses')
-        	->where('id', '=' , $checkfrom['dates'][$i]->house_id)
-        	->get());
-        	 
-        }
-        //var_dump($data['houses']);
-		return View::make('results', $data);
-	}
-
-
-	public function prices() // Maria lista husen
+	public function prices() 
 	{
 		//
 		return View::make('prices');
@@ -133,13 +108,13 @@ class BookingController extends BaseController {
 					$date[$houseId][$j] = $temop;
 					}
 				}
-				dd($date);
+				//dd($date);
 				for ($k=0; $k < count($date); $k++) { 
 					array_push($dateArrayDB, ($dateSplitArray[0].'-'.$dateSplitArray[1].'-'.$date[$houseId][$k])); 
 				}
 
 			}
-			var_dump($dateArray);
+			//var_dump($dateArray);
 			//var_dump($data['from'][0]->datefrom);
 				//var_dump($variabel);
 			//}
@@ -166,25 +141,18 @@ class BookingController extends BaseController {
 	 * @return Response
 	 */
 
-	public function checkboxValue() /*Maria testar*/
-	{
-		$checkbox = array();
-		$checkbox['checkbox1'] = Input::get('checkbox1');
-
-		$data = new Houses();
-		$data->checkbox($checkbox);
-
-		return View::make('verification');
-
-			}
 
 
 	public function create() /*Maria Rennemark - save user information*/
 	{
+
 		$customer = array();
+		
+		$customer['checkbox'] = Input::get('checkbox','value');
 		$customer['name'] = Input::get('name');
 		$customer['phonenumber'] = Input::get('phonenumber');
 		$customer['email'] = Input::get('email');
+	var_dump($customer);
 
 		$data = new Customer();
 		$data->customerValues($customer);
@@ -201,12 +169,12 @@ class BookingController extends BaseController {
 
 	public function store($id) /* Maria Rennemark - add a house to a specific booking*/
 	{
-		$posthouse = new Houses(
+		$house = new Houses(
 			array(
 				'name' => Input::get('checkbox1') ));
 		$booking = Bookings::find($id);
-		$posthouse = $booking->houses()->save($posthouse);
-var_dump($posthouse);
+		$house = $booking->houses()->save($house);
+
 		return Redirect::to('verification'.$id);
 
 }

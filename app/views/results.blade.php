@@ -11,8 +11,10 @@ h5  {color:white}
       <h5>Välj ledig stuga</h5>
 
       @for ($i=0; $i < count($houses); $i++)
-      	{{Form::label($houses[$i]->name)}}
-     	 {{ Form::checkbox('checkbox1', '') }}
+
+      {{Form::label($houses[$i]->name) }}
+      {{ Form::checkbox('checkbox', $houses[$i]->id) }}
+
       @endfor
 
     </div>

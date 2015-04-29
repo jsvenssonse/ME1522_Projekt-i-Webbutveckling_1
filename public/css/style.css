@@ -127,4 +127,22 @@
    	margin-left: 35px;
 	margin-top: 20px;
 	}
+
+	.table table{
+	background: none repeat scroll 0% 0% #FFF;
+	margin-bottom: 1.25rem;
+	border: 1px solid #DDD;
+	table-layout: auto;
+	width: 90%;	
+	float:right;
+	margin-right:4%;
+	margin-top:9%;
+	}
+
+	.row .row{
+    width: auto;
+    margin: 0px -0.0000000000001rem !important; 
+    max-width: none;
+
+	}
 	/*ending off! booking och master CSS*/
